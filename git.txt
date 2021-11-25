@@ -1,0 +1,33 @@
+- các khái niệm cơ bản
+1. branch - nó là 1 cái nhánh để chưa code của cái feature
+2. commit - đại diện cho 1 thời điểm cụ thể và 1 message cụ thể cho đoạn code được commit
+3. checkout - chuyển đổi giữa các nhánh hoặc tạo nhánh mới
+4. fetch - tìm tất nhưng commit mới nhất trên repository để đồng bộ về local
+5. fork - tạo 1 bản sao của repository,
+6. head - là 1 đoạn mã nằm ở phần đầu của commit thường dùng nó cho việc revert code
+7. master/main - đây là nhánh chính
+8. origin - là một phiên bản mặc định của repository và đóng vai trò là 1 alias
+9. merge - gộp các phiên bản code lại với nhau
+10. pull - dùng để lấy code mới nhất từ repository vè local
+11. push - đẩy code từ loacl lên repository
+12. rebase - di chuyển, phân tách hoặc thoát khỏi các commit
+13. remote - kết nối đến kho lưu trữ từ
+14. upstream - đề cập đến nơi mà các bạn muốn push code
+15. repository - kho lưu trữ code và các branch
+16. stash - loại bỏ các thay đổi và lưu ở bản nháp, có thể khôi phục bất cứ lúc nào cần bằng câu lênh git stassh pop
+17. tags - đánh version cho sản phẩm
+
+- câu lệnh: 
+    + git config: dùng để thêm email và tên của người dùng
+    + git init: khởi tạo ra 1 cái project
+    + git clone: copy toàn bộ repository về máy local
+    + git status: xem trạng thái của repository ở máy local
+    + git add: dùng để thêm các file đã thay đổi vào hàng đợi
+    + git commit: dùng để thêm chú thích cho cấc đoạn code mà bạn vừa add
+    + git push: đẩy code mới nhất từ local lên repository
+    + git pull: lấy code mới nhất từ repository về máy local
+    + git checkout: chuyển nhánh hoặc để tạo nhánh mới
+    + git reset: đùng để quay trở lại 1 cái thời điểm cụ thẻ nào đó
+    + git stash: loại bỏ các code hiện, nhưng ko xóa mà lưu thành 1 bản nháp
+    + git remote: truy cập đến 1 kho lưu trữ từ xa
+    + git merge: nhập code lại với nhau
