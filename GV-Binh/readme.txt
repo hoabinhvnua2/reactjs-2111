@@ -1,0 +1,3 @@
+1. Các hãy cho tôi biết khả năng của các đi
+2. Các bạn hãy nói ước mơ của các bạn là gì và các sẽ làm gì để đạt đc ước mơ
+3. Các bạn có góp ý gì cho tôi không? Xin hãy cho tôi mượn bờ...
