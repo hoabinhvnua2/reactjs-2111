@@ -1,4 +1,13 @@
 vu 
+<<<<<<< HEAD
+
+điểm mạnh : vô cùng mạnh mẽ , học nhanh quên cũng nhanh như học . thành thạo nhiều ngoại ngữ nên tiếp cận dễ , chăm chú nghe mấy anh ấn độ 
+có base lập trình java c++ , js html css cơ bản , khả năng tự học cao 
+điểm yếu : k chỉnh chu cho lắm nên là lắm lúc có những cái lỗi ngớ ngẩn 
+lời khuyên cho mentor : nếu mà được thì mong mentor dạy nhanh hơn nữa :v
+
+=======
 24
 điểm mạnh : thành thạo ngoại ngữ anh , nhật  , base java , c++ , html css , js 
 điểm yếu : thiếu chỉnh chu , hơi ẩu 
+>>>>>>> f14eb51418dcb6406af2f8e97b67905d9c9b6e4d
