@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bài tập buổi 3</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th colspan="4">1</th>
+        </tr>
+        <tr>
+            <td rowspan="3">1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td colspan="3">1</td>
+        </tr>
+    </table>
+
+    <br><br>
+
+    <form action="#">
+        <fieldset>
+            <legend>Đăng ký</legend>
+
+            <label for="firstname">Họ: </label>
+            <input type="text" name="firstname" id="firstname">
+            <br><br>
+
+            <label for="lastname">Tên: </label>
+            <input type="text" name="lastname" id="lastname">
+            <br><br>
+
+            <label for="age">Tuổi: </label>
+            <input type="number" name="age" id="age">
+            <br><br>
+
+            <label for="cars">Quê quán: </label>
+            <select name="address" id="address">
+                <option value="" selected>-------Chọn quê quán-------</option>
+                <option value="bentre">Bến Tre</option>
+                <option value="quangngai">Quảng Ngãi</option>
+                <option value="cantho">Cần Thơ</option>
+                <option value="baclieu">Bạc Liêu</option>
+            </select>
+        </fieldset>
+    </form>
+</body>
+</html>
