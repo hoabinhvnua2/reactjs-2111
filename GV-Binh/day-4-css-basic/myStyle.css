@@ -1,0 +1,101 @@
+* {
+    text-transform: uppercase;
+    margin: 0;
+}
+
+h3 {
+    color: yellow;
+}
+
+span {
+    color: yellowgreen;
+}
+
+/* Nếu sử dụng id để style thì phải có dấu # ở trước tên id */
+#jsCustomColor {
+    color: aqua;
+}
+
+/* Nếu sử dụng class để style thì phải có dấu . trước tên class */
+.custom-color-blue {
+    color: blue;
+}
+
+.custom-div-one>p,.custom-div-three>p {
+    color: yellow;
+}
+
+[class$=bad]:focus {
+    border: 1px solid green;
+}
+
+/* [type^=number]:focus {
+    border: 1px solid blue;
+    box-shadow: 5px 10px #888888;
+} */
+
+
+ul li:last-child {
+    color: red;
+}
+
+ul li:hover {
+    color: green;
+}
+
+.custom-style {
+    border: 1px solid green;
+    padding: 5px 10px 8px 20px;
+    margin: 5px;
+    position: sticky;
+    top: 0;
+}
+
+.custon-position {
+    background-color: green;
+    width: 300px;
+    height: 150px;
+    margin: 10px;
+    position: relative;
+}
+
+.custom-position-child-1 {
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+.custom-position-child-2 {
+    background-color: yellowgreen;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.custom-position-child-3 {
+    background-color: blue;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    z-index: 1;
+}
+.custom-position-child-4 {
+    background-color: aqua;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 2;
+}
+
+.custom-fixed {
+    position: absolute;
+    position: fixed;
+    background-color: red;
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+}
