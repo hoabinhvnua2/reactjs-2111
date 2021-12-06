@@ -1,0 +1,11 @@
+https://courses.edx.org/courses/course-v1:Microsoft+DEV276x+1T2019/course/
+https://courses.edx.org/courses/course-v1:Microsoft+DEV277x+3T2018/course/
+
+https://www.w3schools.com/Css/css_boxmodel.asp
+https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+https://hocwebchuan.com/tutorial/tutorial_html.php
+
+https://mui.com/components/tables/#main-content
+https://apexcharts.com/
+
+ngx echarts

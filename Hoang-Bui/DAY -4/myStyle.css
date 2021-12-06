@@ -1,0 +1,26 @@
+* {
+    text-transform: uppercase;
+}
+h3 {
+
+    color: rgb(226, 116, 43);
+}
+/* nếu sử dụng class để style phải có dấu . */
+.custom-color-blue {
+    color: blue;
+}
+/* nếu sử dụng id thì phải có #ở trước tên id */
+/* id được ưu tiên hơn class */
+#jsCustomColor {
+    color: aqua;
+
+}
+
+.custom-div-one>p,.custom-div-three>p {
+    color: yellow;
+}
+
+[TYPE^=text]:focus {
+    border: ;
+
+}
