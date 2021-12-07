@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài tập HTML</title>
+    <style>
+      body {
+        width: 500px;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 15px;
+      }
+      div {
+        margin-bottom: 10px;
+      }
+      label {
+        display: inline-block;
+        width: 70px;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <table style="width: 100%">
+      <tr>
+        <th colspan="4"></th>
+      </tr>
+      <tr>
+        <td rowspan="3"></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="3"></td>
+      </tr>
+    </table>
+    <br />
+
+    <fieldset>
+      <legend>Đăng ký</legend>
+      <div>
+        <label>Họ:</label>
+        <input type="text" />
+      </div>
+
+      <div>
+        <label>Tên:</label>
+        <input type="text" />
+      </div>
+
+      <div>
+        <label>Tuổi:</label>
+        <input type="text" />
+      </div>
+
+      <div>
+        <label>Quê quán:</label>
+        <input list="browsers" name="browser" />
+        <datalist id="browsers">
+          <option value="Hà Nội"></option>
+          <option value="Huế"></option>
+          <option value="Lâm Đồng"></option>
+          <option value="Hồ Chí Minh"></option>
+          <option value="Cà Mau"></option>
+        </datalist>
+      </div>
+    </fieldset>
+  </body>
+</html>
