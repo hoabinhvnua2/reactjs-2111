@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .custom {
+            height: 100px;
+            width: 100px;
+            background-color: aqua;
+            animation: myAnimation 5s linear 2s infinite;
+            position: relative;
+
+            transition: all 5s;
+        }
+
+        @keyframes myAnimation {
+            0% {
+                left: 0%;
+            }
+
+            100% {
+                left: 100%;
+
+                width: 110px;
+                height: 110px;
+            }
+
+        }
+
+        .custom-transition{
+            width: 100px;
+            height: 50px;
+            background-color: brown;
+            transition: width 3s ;
+        }
+
+        .custom-transition:hover{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="custom"></div>
+
+    <div class="custom-transition"></div>
+</body>
+</html>
