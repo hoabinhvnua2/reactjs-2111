@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p></p>
+    <ul>
+        <li></li>
+    </ul>
+    
+
+    <script src="./myScript.js"></script>
+    <script>
+        // 1. Biến 
+        // 2. Hàm
+        // 3. Object, Array
+        // 4. Đồng bộ và bất đồng bộ
+        // 5. Event loop
+        // 6. DOM
+        // 7. BOM
+
+        // Có 2 cách nhúng script vào trang html
+            // 1. sử dụng tag script - chú ý cặp script này phải đc đặt trong body và ở dưới cùng của các thẻ html
+            // 2. external - tạo 1 file js riêng và import vào html
+        
+
+        // convension js camel case
+
+        // const dùng khi mà giá trị là bất đổi trong mọi trường hợp
+        // function scope
+        // block scope
+        // global scope
+        var my = 'React';
+        var myName = '';
+
+        let firstName = 'html';
+        const myAlias = "REACTJS";
+
+
+        my = 'html';
+        firstName = ' css';
+
+        var age1 = 5;
+        var age2 = 0;
+
+        // console.log(age1 == age2); // => true; == chỉ so sánh về giá trị 
+        // console.log(age1 === age2); // => false; === so sánh cả giá trị và kiểu
+
+        console.log('kq', age2 || 100);
+        console.log('kq1', age2 ?? 100);
+        // console.log(my + firstName);
+        // console.log(age1 + +age2);
+
+        (!true) ?  console.log(true) : console.log('không xác định');
+
+
+        // console.log(my);
+        // console.log('firstName', firstName);
+        // console.log('myAlias', myAlias);
+
+
+        // if(true) {
+        //     var age = 25; // => function scope
+        //     let myStudent = "Native" // => block scope 
+
+        //     console.log('myStudent',typeof myStudent)
+        // }
+
+
+        // console.log(typeof age);
+
+        // function tinhDiem() {
+        //     var gender = "Nam";
+        //     let myStyle = "BOY";
+        // }
+
+
+        // console.log('gender', gender); 
+        // console.log('myStyle', myStyle);
+
+        // for (let index = 0; index < 5; index++) {
+        //     setTimeout(() => {
+        //         console.log(index);
+        //     }, 1000)        
+        // }
+
+        // 0, 1, 2, 3, 4
+
+        // alert('Xin chào')
+        // const myInfo = prompt('Chào bạn, bạn tên gì?');
+        // const bool = confirm('Ok không');
+
+        // console.log(myInfo)
+        // console.log(bool)
+
+        // for => thương sử dụng trong trường hợp biết trc sô lần lặp
+        // while => sử dụng trong trường chưa biết trc sô lần lặp, kiểm tra đk trước khi làm
+        // do while => làm 1 lần rồi mới kiểm tra điều kiện
+
+
+        // for(let i = 0; i < 5; i++) {
+        //     console.log(i);
+        // }
+
+        // let i = 0; 
+        // while(i < 5) {
+        //     console.log(i);
+        //     i++;
+        // }
+
+        // sử dung prompt yêu cầu người dùng nhập váo sô tuổi nếu tuối nhỏ 18 và lớn 100 thì ko cho xem
+        // var myAge = prompt('Nhập tuổi của bạn?');
+        // while(myAge < 18 || myAge > 100) {
+        //     myAge = prompt('Nhập tuổi của bạn?');
+        // }
+        // alert('Bạn đủ tuổi để xem');
+
+        let i = 5;
+
+        while(i < 5) {
+            console.log(i);
+            i++
+        }
+
+        do {
+            console.log(i);
+            i++;
+        } while (i < 5);
+
+        // B1: sử dụng prompt để ng đùng nhạp giá trị, sau đó lấy giá trị đó so sánh với 100, nếu lớn 100 thì alert lên là giá trị vừa nhập lớn hơn 100
+        // 101 => alert(101> 100)
+        // nếu nhỏ hơn 100 thì alert(90 < 100) cuối cùng bawgf 100 thì alert(100 bằng 100)
+
+        // B2: sử dụng prompt cho người dùng nhập vào 2 số, sau đó tính tổng 2 số đó và alert lên tổng
+
+        // B3: tính tổng các sô chẫn từ 0 đến giá trị mà người dùng vừa nhập - sử dụng prompt
+
+        // B4: Thực hiện phép chia và alert kết lên chô người. Người dùng sẽ nhập 2 số sử dụng propmt, nếu số thứ 2 mà người dùng nhập là sô 0
+        // thì yêu cầu người dùng nhập lại cho tới khi khác không thì bắt tính toán.
+
+
+        // B1
+        // if (valueInput > 100) {
+        //     alert(valueInput + ' lớn hơn ' + 100);
+
+        // } else if(valueInput < 100) {
+        //     alert(valueInput + ' nhỏ hơn ' + 100);
+        // } else {
+        //     alert(valueInput + ' bằng ' + 100 );
+        // }
+
+        // B2
+        // const numberOne=  prompt('Mời bạn nhập vào số thứ nhất');
+        // const numberTwo=  prompt('Mời bạn nhập vào số thứ hai');
+        // alert('Tổng của ' + numberOne + ' và ' + numberTwo + ' là: ' + (parseInt(numberOne) + parseInt(numberTwo)));
+
+        // B3
+        // const numberOne=  prompt('Mời bạn nhập vào một số');
+        // let sum = 0;
+        // for (let i = 0; i < parseInt(numberOne); i++) {
+        //     if (i % 2 === 0) {
+        //         sum += i; // => sum = sum + i;
+        //     }
+        // }
+        // alert('tổng giá trị là ' + (sum));
+
+        // B4
+        const numberOne=  prompt('Mời bạn nhập vào số thứ nhất');
+        let numberTwo=  prompt('Mời bạn nhập vào số thứ hai');
+        while(parseInt(numberTwo) === 0 || !numberTwo) {
+            numberTwo=  prompt('Mời bạn nhập vào số thứ hai');
+        }
+        alert('Kết quả của phép chia: ' + (parseInt(numberOne) / parseInt(numberTwo)))
+    </script>
+</body>
+</html>
