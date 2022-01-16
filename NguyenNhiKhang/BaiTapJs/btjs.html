@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*Bài 1*/
+
+        var age = parseInt(prompt("Nhập tuổi: "));
+
+        if(age > 100) {
+             alert(age + " > 100" );
+         }
+         else if(age < 100) {
+             alert(age + " < 100");
+         }
+         else {
+            alert(age + " = 100");
+         }
+
+         /*bài 2*/
+
+         var a = parseInt(prompt("Nhập số a: "));
+         var b = parseInt(prompt("Nhập số b: "));
+         var sum = a + b;
+         alert(a + " + " + b + " = " + sum);
+
+         /*bài 3*/
+
+         let c = parseInt(prompt("Nhập vào 1 số bất kỳ: "));
+         var tong = 0;
+         for(var i = 0; i <= c; i++) {
+             if(i % 2 === 0) {
+                 tong += i;
+             }
+         }
+         alert("tổng các số chẵn là: " + tong);
+
+
+         /*Bài 4*/
+         do {
+             var num1 = prompt("Nhập số thứ nhất: ");
+         } while (num1 == 0);
+         
+         do {
+             var num2 = prompt("Nhập số thứ hai: ");
+         } while (num2 == 0);
+
+         var division = num1 / num2;
+
+         alert(`${num1} / ${num2} = ${division}`);
+
+    </script>
+</body>
+</html>
