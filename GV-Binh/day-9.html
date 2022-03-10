@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Tâoj object -->
+
+    <script>
+        // var name = '2111';
+
+        // var today = '2112';
+
+        // var obj = {
+        //     0: 1,
+        //     'lop 12A': 2,
+        //     'lop 1': 10,
+        //     [today]: 'Notification',
+        // };
+
+        // var obj1 = new Object({name: 'reactjs'});
+
+        // var obj2 = Object.create({age: 20});
+
+
+        // console.log(obj);
+        // // name: 'react'
+
+        // obj.name = 'react';
+
+        // console.log(obj);
+
+
+        // delete obj['lop 12A'];
+        // console.log(obj);
+        // // console.log(obj2);
+
+        // // cho một mảng:
+
+        // const arr1 = ['react', 'html', 'css', 'vue', 'angular'];
+        // const arr2 = ['hook', '5', '3', 'js', '12'];
+
+        // const length = arr1.length;
+
+        // // tạo một Object {react: hook, html: 5, ...}
+        // // thêm một cặp key value cho object vừa tạo ....
+
+        // function createObj() {
+        //     const obj1 = {};
+
+        //     for(let i = 0; i < length; i++) {
+        //         obj1[arr1[i]] = arr2[i];
+        //     }
+        //     return obj1;
+        // }
+
+        // const objNew = createObj();
+        // console.log(objNew);
+
+        // // có các phương thức gì
+
+
+        // var a = {name: 'react'};
+        // var b = Object.assign({}, a);
+
+        // console.log(b);
+
+        // a.name = 'html';
+
+        // console.log(b);
+
+        // const newName = Object.create({}); // => phương thức tạo 1 obj mới
+        // const newName1 = Object.assign({}); //=> phương thức copy 1 obj và tạo ra 1 obj mới
+        // // console.log(newName)
+
+
+        // const abc = Object.freeze({name: 'react', alias: 'hook', age: 20});
+
+
+        // console.log(Object.keys(abc));
+        // console.log(Object.values(abc));
+
+
+        // B1: 
+        const data = [
+            {
+                id: 0,
+                name: 'react',
+                versions: [
+                    {
+                        time: '2 ngaỳ',
+                        des: 'thông tin thay đổi'
+                    },
+                    {
+                        time: '3 ngaỳ',
+                        des: 'thông tin thay đổi 1'
+                    },
+                ]
+            }, 
+            {
+                id: 0,
+                name: 'html',
+                versions: [
+                    {
+                        time: '2 ngaỳ',
+                        des: 'thông tin thay đổi'
+                    },
+                    {
+                        time: '3 ngaỳ',
+                        des: 'thông tin thay đổi 1'
+                    },
+                ]
+            }, 
+            {
+                id: 0,
+                name: 'css',
+                versions: [
+                    {
+                        time: '2 ngaỳ',
+                        des: 'thông tin thay đổi'
+                    },
+                    {
+                        time: '3 ngaỳ',
+                        des: 'thông tin thay đổi 1'
+                    },
+                ]
+            }, 
+        ];
+        // đếm xem các name có mấy version và trả về 1 obj {html: 2, css: 2,...}
+
+// C1
+        const lengthData = data.length;
+        //  chưa bài
+        function handleB2() {
+            const newObj = {};
+            for(let i = 0; i < lengthData; i++) {
+                newObj[data[i].name] = data[i].versions.length;
+            }
+            return newObj;
+        }
+
+        const objCount = handleB2();
+
+        console.log(objCount);
+
+        // C2:
+
+        const objNow = data.reduce((prevItem, currentItem, index) => {
+            prevItem[currentItem.name] = currentItem.versions.length;
+            return prevItem;
+        }, {});
+
+
+        console.log(objNow);
+        // B2
+        const obj = [{
+            time: 1,
+            mes: 'hello',
+            name: 'nga',
+        },
+        {
+            time: 2,
+            mes: 'hello',
+            name: 'nga',
+        },
+        {
+            time: 1,
+            mes: 'hello',
+            name: 'nam',
+        },
+        {
+            time: 2,
+            mes: 'hello',
+            name: 'nga',
+        },
+        {
+            time: 3,
+            mes: 'hello',
+            name: 'lan',
+        },
+        {
+            time: 3,
+            mes: 'hello',
+            name: 'minh',
+        }
+    ];
+    // C1
+    const objLength = obj.length;
+    // tìm trong mảng obj có name là nam và trả về cáin index của object đó
+    for(let i = 0; i < objLength; i++) {
+        if(obj[i].name === 'nam') {
+            console.log('obj', obj[i]);
+            console.log('index', i);
+        }
+    }
+    // C2
+    const result = obj.find((item, index) =>
+        item.name === 'nam');
+
+        console.log(result);
+     // lọc ra 1 mảng chứa nhưng obj có name là nga [{name: nga}]
+
+     const newArr = obj.filter((item) => item.name === 'nga');
+
+     console.log(newArr);
+    // biến đổi data từ array trên thành object sau {today: [{}, {}], yes: [{}, {}], old: [{}, {}]}
+
+    // => gợi ý sử dụng reduce để làms
+   
+
+    </script>
+    
+</body>
+</html>

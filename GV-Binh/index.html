@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>xin chào</p>
+
+    <script>
+        // var, let, const => câu hỏi phỏng vấn;
+        // if else, switch case;
+        // for, while, do while;
+        // Function là 1 khối code, nó bao gồm nhiều lệnh để thực hiện xử 1 công việc nào
+
+        // Cos thể tái sử dụng
+        //  maintain
+
+
+        //  C1
+        function sumNambers(a, b) {
+            // chứ các dòng code
+
+            // console.log(a);
+            // console.log(b);
+
+
+            return a + b;
+        }
+
+        let res = sumNambers(5, 6);
+
+        console.log(res);
+
+
+        const handleSubmit = (c, d) => {
+            return c + d;
+        }
+        console.log(handleSubmit(10, 2));
+
+
+        // B1: viết hàm nhận vào 1 tham số, nếu số đó > 8 thì show alert: học sinh giỏi, còn lại show: học sinh khá
+        function handleStudent(number) {
+            // if(number > 8) {
+            //     alert('học sinh giỏi');
+            //     return;
+            // }
+            // alert('học sinh khá');
+
+            number > 8 ? alert('học sinh giỏi') :  alert('học sinh khá');
+        }
+
+        // a ? b : c
+
+        handleStudent(9);
+
+        // B2: viết hàm tính tổng các số từ 1 đến tham sô được truyền vào hàm
+        // b: tính tổng các số chẵn
+
+        // B3: viết 1 function kiểm tra xem ngừoi dùng nhập giá trị có lớn hơn 100 hay ko? nếu lớn hơn 100 thì thức hiên dếm các sô chẵn từ 0 -> số ng dùng nhập
+        // nếu ng dùng nhập nhỏ hơn 100 thì đêms các sô lẻ từ 0 > tham sô người dùng nhập
+
+        function sum(number) {
+            let result = 1;
+
+            for(let i = 1; i < number; i++) {
+                if(i % 2 === 0) {
+                    result += i;
+                }
+            }
+
+            console.log(result);
+        }
+
+        function handleCount(number) {
+            let count = 0;
+            if(number > 100) {
+                // đếm sso chẵn
+                for(let i = 0; i < number; i++) {
+                    if(i % 2 === 0) {
+                        count += 1;
+                    }
+                }
+
+                console.log(`Có ${count} số chẵn từ 0 đến ${number}`);
+                return count;
+            }
+
+            // đếm số lẻ
+            for(let i = 0; i < number; i++) {
+                if(i % 2 === 1) {
+                    count += 1;
+                }
+            }
+
+            console.log(`Có ${count} số lẻ từ 0 đến ${number}`);
+        }
+
+        handleCount(100);
+        // sum(5);
+
+        // Array là một mảng chứ các dữ liệu có nhiểu kiểu khác nhau
+
+        let arr = [1,2,3,5,3];
+
+        let arr1 = [5, 2, 7,3];
+
+        // thêm phần tử vào cuối mảng
+        arr.push(6);
+
+        // thêm phần tử vào đầu mảng
+        arr.unshift(0);
+
+        //Xoá phần tử cuối cùng của mảng
+        arr.pop();
+
+        // xoá phần tử đầu tiên của mảng 
+        arr.shift();
+
+        // indexOf, lastIndexOf
+        console.log(arr.indexOf(3));  // 2
+        console.log(arr.lastIndexOf(3)); // 4
+        // findIndex
+        console.log(arr.findIndex((item) => item === 3));
+
+        // map
+        const newArr = arr.map((item) => item + 2);
+        console.log(newArr);
+
+        // find tìm 1 phần trong mảng
+        const item = arr.find(i => i === 4);
+        console.log('item', item);
+
+        // filter tìm nhiều phần tử trong mảng
+        const arrItem = arr.filter(i => i % 2 === 1);
+        console.log('arrItem', arrItem);
+
+        // every => kiểm tra tất cảc phần tử trong mảng phải thoả mãn điều kiện nào đó
+        // console.log(arr.every(i => i % 2 === 1));
+
+        console.log(arr.some(i => i % 2 === 0));
+
+        // concat
+        console.log(arr.concat(arr1));
+
+
+        // reduce
+        const sum1 = arr.reduce((pre, cur) => pre + cur);
+
+        const newArr1 = [];
+        arr.forEach((v, i) => newArr1.push(v * 2));
+
+        const abcde = newArr1.push(1);
+        console.log(abcde);
+
+
+        // B1: viêt 1 function yêu cầu người dùng nhập vào 1 chuỗi giá trị ngăn giữa bởi dấu ',', sau đó xử lý chuỗi giá trị đó thành 1 mảng
+        // 1,2,3,4,5 => [1, 2, 3, 4, 5]. console mảng ra.
+
+        //B2: cho mảng a = ['react', 'html', 'css', 'javascript']. Viết 1 function tìm kiếm giá trị có tồn tại trong mảng hay ko
+        // 'java'
+
+        // B3: tạo một mảng rỗng. viết 1 function nhận vào 2 tham sô, thấm sô thứ nhất là sô phần tử của mảng,
+        //thâm sô thứ 2 dùng để chon các sô chẵn từ 0 -> thâm sô thứ 2. thực hiện thêm phần tử tự động cho mảng
+        // function autoCreateArr(4, 9) => [0, 2,4, 6];
+
+        // 0 -> 9 => có những sô chẵn nào? 0, 2, 4, 6, 8 => [0, 2,4, 6];
+    </script>
+</body>
+</html>

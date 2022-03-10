@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #circle {
+            width: 250px;
+            height: 250px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <p id="hello">Xin chào bạn</p> -->
+
+    <div id="circle"></div>
+
+    <select id="selector" onchange="selectColor(event)" value="green">
+        <option value="">Select Color</option>
+        <option value="green">Green</option>
+        <option value="blue" selected>Blue</option>
+        <option value="yellow">Yellow</option>
+        <option value="red">Red</option>
+    </select>
+   
+    <button id="green" onclick="handleChangeColor('green', event)" >Green</button>
+    <button id="blue" onclick="handleChangeColor('blue', event)" >Blue</button>
+    <button id="yellow" onclick="handleChangeColor('yellow', event)" >Yellow</button>
+    <button id="red" onclick="handleChangeColor('red', event)" >Red</button>
+
+
+    <div>
+        <input type="text" id="input1" oninput="handleOnInput(event)">
+        <input type="text" id="input2">
+        <button ondblclick="validate()">Cộng</button>
+    </div>
+
+    <p id="result"></p>
+
+    <ul id="list">
+
+    </ul>
+
+    <script>
+        // cac cach lay Element trong js
+        var ele1 = document.getElementById('hello');
+        var ele2 = document.getElementsByClassName('cl1');
+        var ele3 = document.getElementsByTagName('p');
+        var ele4 = document.querySelector('p.cl1');
+        var ele5 = document.querySelectorAll('p.cl1');
+        console.log(ele5);
+        // ele1.addEventListener('click', () => {
+        //     alert('Xin chao cac ban lop React');
+        // })
+
+        // C2: tuowng tac DOM
+        function handleShowAlert() {
+            alert('Cach 2 show alert');
+        }
+
+        // tạo ra 4 button green, blue, yellow, red
+        function handleChangeColor(color, event) {
+            var ele1 = document.getElementById('circle');
+            var elements = document.getElementsByTagName('button');
+            var select = document.getElementById('selector');
+
+            for (let index = 0; index < elements.length; index++) {
+                if(!(elements[index] === event.target)) {
+                    elements[index].style.background = 'unset';
+                } 
+            }
+
+            ele1.style.background = color;
+            event.target.style.background = color;
+            select.value = color;
+        }
+
+        // on change
+        function selectColor(e) {
+            var ele1 = document.getElementById('circle');
+            var elements = document.getElementsByTagName('button');
+            for (let index = 0; index < elements.length; index++) {
+                if(elements[index].id === e.target.value) {
+                    elements[index].style.background = e.target.value;
+                } else {
+                    elements[index].style.background = "unset";
+                }
+            }
+            
+            ele1.style.background = e.target.value;
+        }
+
+        function validate() {
+            var input1 = document.getElementById('input1').value;
+            var input2 = document.getElementById('input2').value;
+            var result = document.getElementById('result');
+
+            if (input1 === '' || input2 === '') {
+                alert('Bạn chưa nhập giá trị!');
+            }
+
+            result.textContent = input1 + input2;
+        }
+
+        // on input
+
+        function handleOnInput(e) {
+            console.log(e.target.value);
+        }
+
+        const arr = [1, 2,3 ,4 ,5];
+
+
+        function renderList() {
+            var list = document.getElementById('list');
+            var html = '';
+
+            for (let index = 0; index < arr.length; index++) {
+                html += '<li>' + arr[index] + '</li>'
+            }
+            list.innerHTML = html;
+            
+        }
+
+        renderList()
+
+
+        // B1: Code 1 chiếc máy tính có nhân bao gồm 5 phép + - * / % **
+        // tạo 2 ô input và 1 button =
+        // tạo ra 5 cái button tương ứng vs 5 phép tính
+        // YC1: nếu người dùng không nhập gì mà click vào button thì alert lỗi
+        // YC2: nếu ngường nhập vào không phải là 1 số thì hiển thị alert thông báo lỗi
+        // YC3: nếu người dùng chọn phép tính chia mà o input thứ 2 nhập số 0 thì phải thông báo lỗi
+        // YC4: Ngừoi dùng chọn phép tính nào thì phép tính đo phải đổi thành màu đỏ
+        // YC5: Sau khi người dùng click vào dấu = thì phải thực hiện phép tính và hiển thị ra màn hình thông qua thẻ p
+
+
+        // B2s
+        const array = [
+            {
+                id: 1,
+                productName: 'product 1',
+                price: '$2',
+                quantity: 20
+            },
+            {
+                id: 2,
+                productName: 'product 2',
+                price: '$5',
+                quantity: 10
+            },
+        ];
+
+        // YC1: in dữ trên ra table
+        // YC2: tạo thêm 3 o input và 1 button add, input 1 nhập tên sản phẩm, input 2 nhập giá SP, input nhập số lượng SP.
+        // khi click vào btn nếu 1 trong 3 ô mà chưa nhập thì show lỗi.
+        // YC3: Sau khi hết lỗi mà clcik vào add thì phải lấy các gía trị ngừoi dùng vừa nhập in vào bảng ở YC1
+        // YC4: Thêm 1 cột action vào bảng bên phải, trong cột chưa 2 btn sửa và xoá. Khi click vào xoá thì pphair xoá đc phần tử đó khỏi bảng
+
+
+    </script>
+</body>
+</html>

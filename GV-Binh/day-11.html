@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p onmousedown="handleMouseDown(event)">MouseDown</p>
+    <p onmouseout="handleMouseOut()">Mouse out</p>
+    <p onmouseover="handleMouseOver()">Mouse over</p>
+
+    <p contextmenu="handleMouseRight()">Mouse right</p>
+    <!--  -->
+
+    <form action="" onsubmit="handleForm(event)">
+
+        <input type="text" name="" id="">
+
+        <input type="button" value="Button">
+        <input type="submit" value="Submit">
+    </form>
+
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+
+        <tbody id="result">
+            <tr>
+                <td>1</td>
+                <td>hello</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+
+        function handleMouseDown(e) {
+            console.log(e.button === 2);
+        }
+        function handleMouseOut() {
+            console.log('mouse out');
+        }
+        function handleMouseOver() {
+            console.log('mouse over');
+        }
+
+        function handleMouseRight() {
+            console.log('right');
+        }
+
+
+        function handleForm(e) {
+            console.log(e);
+            e.preventDefault();
+        }
+
+        // Local storage
+
+        localStorage.setItem('token', JSON.stringify({ name: 'react', value: 20, age: 30 }));
+
+        console.log(JSON.parse(localStorage.getItem('token')));
+
+        const arr = [{ "age": 18, "name": "name 1", "value": 99, "id": "1" }, { "age": 58, "name": "name 2", "value": 78, "id": "2" }, { "age": 15, "name": "name 3", "value": 43, "id": "3" }, { "age": 58, "name": "name 4", "value": 18, "id": "4" }, { "age": 56, "name": "name 5", "value": 15, "id": "5" }]
+
+        // lưu vào local storage.
+
+        // localStorage.setItem('data2', JSON.stringify(arr));
+
+        // lấy từ local storage ra và show data ra giao bằng table
+
+        const data = JSON.parse(localStorage.getItem('data'));
+
+        console.log(data);
+
+
+        var result = document.getElementById('result');
+
+        var html = '';
+
+        // localStorage.removeItem('data1');
+        localStorage.clear();
+
+        for (let index = 0; index < data?.length; index++) {
+                html += ` <tr>
+                <td>${index + 1}</td>
+                <td>${data[index].name}</td>
+                <td>${data[index].value}</td>
+                <td>${data[index].age}</td>
+            </tr>`
+            }
+            result.innerHTML = html;
+
+
+            // sessionStorage 
+            // lưu vào session -> setitem
+            // lấy ra -> getItem
+            // xoá remove -> removeItem
+
+
+            // sessionStorage.setItem('test', JSON.stringify({ name: 'react', value: 20, age: 30 }));
+
+
+            // console.log(JSON.parse(sessionStorage.getItem('test')));
+
+            var name = 'binh'
+            document.cookie = name + '=' + 'tôi đây';
+
+
+
+            console.log(document.cookie);
+    </script>
+    </p>
+</body>
+
+</html>

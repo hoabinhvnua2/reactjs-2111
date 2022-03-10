@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <input type="text" class="form-control" placeholder="Search" oninput="handleSearch(event)">
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th scope="col">No.1</th>
+                <th scope="col">Name</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Action</th>
+
+
+            </tr>
+        </thead>
+        <tbody id="result">
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-center">
+        <div id="loading" class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <script>
+        //  Mình phải làm bài tập
+
+        //Tuần tự: Action 1 => action 2
+        // bất đồng bộ: Action1, action2, ...
+
+        // list danh sách khách hàng, và anh cần xem chi tiết 1 đơn hàng của 1 khách hàng
+
+        // function filterKH() {
+        //     // tìm ra đc KH A
+        //     filterDH(A, fallB) {
+        //         viewDetail(A) {
+        //             a(b) {
+        //                 b(c) {
+        //                     c(d) {
+        //                         d(e) {
+        //                             e();
+        //                         }
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+
+
+        // document.addEventListener('click', filterDH)
+
+
+        // function filterDH (a, func) {
+
+        // }
+
+        // function viewDetail(b) {
+
+        // }
+        // Promise => 1 lời hứa để xử lý bất đồng bộ
+        // có 3 trạng thái
+        // 1. pending
+        // 2. fulfill
+        // 3. rẹject
+
+        //     const promise = new Promise((res, rej) => {
+        //         setTimeout(() => {
+        //             rej(2);
+        //         }, 3000)
+        //     });
+
+        //     console.log(promise);
+
+        //  promise.then(x => x + 5).then(y => y *2)
+        //  .then(z => console.log(z))
+        //  .catch(err => console.log('err', err))
+
+        console.log(0);
+        console.log(1);
+
+        Promise.resolve(2).then(x => console.log(x));
+
+        setTimeout(() => {
+            console.log(5);
+        }, 0)
+
+        console.log(3)
+
+        Promise.resolve(4).then(z => console.log(z));
+
+
+        const result = document.getElementById('result');
+        const loading = document.getElementById('loading');
+
+       
+
+        const handleRender = (obj) => {
+            if(obj) {
+                let html = '';
+                for (let index = 0; index < obj.length; index++) {
+                    const row = `<tr>
+            <th scope="row">${index + 1}</th>
+            <td>${obj[index].userName}</td>
+            <td>${obj[index].firstName}</td>
+            <td>${obj[index].lastName}</td>
+            <td> 
+                <button type="button" class="btn btn-primary"><i class="bi bi-pencil"></i></button>
+                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+            </td>
+          </tr>`
+
+                    html += row;
+                }
+                result.innerHTML = html;
+                return true;
+            }
+            
+            if (localStorage.getItem('users')) {
+                let html = '';
+                const data = JSON.parse(localStorage.getItem('users'));
+                for (let index = 0; index < data.length; index++) {
+                    const row = `<tr>
+            <th scope="row">${index + 1}</th>
+            <td>${data[index].userName}</td>
+            <td>${data[index].firstName}</td>
+            <td>${data[index].lastName}</td>
+          </tr>`
+
+                    html += row;
+                }
+                result.innerHTML = html;
+            }
+
+            return null;
+        }
+
+        handleRender();
+
+        fetch('https://5fd96f0e7e05f000170d385e.mockapi.io/api/v1/users')
+            .then(x => x.json())
+            .then(data => {
+
+                localStorage.setItem('users', JSON.stringify(data));
+                loading.style.display = 'none';
+                handleRender(data);
+            })
+            .catch(err => console.log(err));
+
+
+    
+        const handleSearch = (e) => {
+            const value = e.target.value;
+            const data = JSON.parse(localStorage.getItem('users'));
+            const dataSearch = data.filter(item => item.userName.indexOf(value) > -1);
+            handleRender(dataSearch);
+        }
+
+
+// => 0 1 3 2 4 5
+    </script>
+
+</body>
+
+</html>
