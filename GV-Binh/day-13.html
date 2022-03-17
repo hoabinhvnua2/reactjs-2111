@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="input-group my-5">
+            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
+                aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                onclick="handleAddNew()">Them</button>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-4 d-none" id="formAdd">
+                <p class="mb-0 text-center"> Add new product</p>
+                <form onsubmit="save(event)" id="register">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Product name</label>
+                        <input type="text" class="form-control" name="productName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Price</label>
+                        <input type="text" class="form-control" name="price">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Quantity</label>
+                        <input type="text" class="form-control" name="quantity">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" onclick="handleClose()">Cancel</button>
+                </form>
+            </div>
+
+
+            <div class="col-12" id="listProduct">
+                <table class="table mt-3">
+                    <thead>
+                        <tr>
+                            <th scope="col">No.1</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list">
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Iphone</td>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>
+                                <button type="button" class="btn btn-primary"><i class="bi bi-pencil"></i></button>
+                                <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+
+        const formAdd = document.getElementById('formAdd');
+        const listProduct = document.getElementById('listProduct');
+        const list = document.getElementById('list');
+        const register = document.querySelectorAll('form input.form-control');
+
+        const products = JSON.parse(localStorage.getItem('products') || '[]');
+        let html = '';
+        for (let index = 0; index < products.length; index++) {
+            const row = `<tr>
+            <th scope="row">${index + 1}</th>
+            <td>${products[index].productName}</td>
+            <td>${products[index].price}</td>
+            <td>${products[index].quantity}</td>
+            <td> 
+                <button type="button" class="btn btn-primary" onclick="handleEdit(${index})"><i class="bi bi-pencil"></i></button>
+                <button type="button" class="btn btn-danger"><i class="bi bi-trash" onclick="handleDel(${index})"></i></button>
+            </td>
+          </tr>`
+
+            html += row;
+        }
+        list.innerHTML = html;
+
+        function handleAddNew() {
+            formAdd.classList.remove('d-none');
+            listProduct.classList.add('col-lg-8');
+        }
+
+
+        function handleClose() {
+            formAdd.classList.add('d-none');
+            listProduct.classList.remove('col-lg-8');
+        }
+
+        function handleDel(nameP) {
+            console.log(nameP);
+            const newPro = products.filter((p, index) => index !== nameP)
+            console.log(newPro);
+        }
+
+        function handleEdit(i) {
+            console.log(products[i]);
+            console.log(register);
+            handleAddNew();
+
+            for (let index = 0; index < register.length; index++) {
+                if (products[i][register[index].name]) {
+                    console.log(register[index]);
+                    register[index].value = products[i][register[index].name]
+                }
+            }
+        }
+
+        function save(e) {
+            e.preventDefault();
+            const data = JSON.parse(localStorage.getItem('products') || '[]');
+            const numberElement = e.target.length - 2;
+            const result = {};
+
+            for (let index = 0; index < numberElement; index++) {
+                console.log(e.target[index].name);
+                result[e.target[index].name] = e.target[index].value;
+            }
+
+            data.push(result);
+
+
+            localStorage.setItem('products', JSON.stringify(data));
+            handleClose()
+        }
+
+        //  Promise.all() 
+        //  nhân vào 1 mảng các promise và nó trả 1 mảng các kết quả của promise
+        // nếu 1 trong số các promise mà bị reject thì cả cái promise all sẽ reject
+
+        // race
+        // Promise.race([]) -> nhận vào là 1 mảng các promise
+        // nó sẽ kết thúc ngay sau khi có kết quả đầu tiên thành công hoặc reject
+
+
+        const p1 = fetch('https://5fd96f0e7e05f000170d385e.mockapi.io/api/v1/users').then(data => data.json()).catch(err => { throw err });
+        const p2 = fetch('https://5fd96f0e7e05f000170d385e.mockapi.io/api/v1/products433').then(data => data.json()).catch(err => { throw err });
+        const p3 = fetch('https://5fd96f0e7e05f000170d385e.mockapi.io/api/v1/task').then(data => data.json()).catch(err => { throw err });
+
+        const all = Promise.race([p1, p2, p3]);
+
+        all.then(data => console.log(data)).catch(err => console.log(err));
+
+
+        //  async await
+
+        const getData = async () => {
+            const a = 1;
+            // const p1 = fetch('https://5fd96f0e7e05f000170d385e.mockapi.io/api/v1/users').then(data => data.json()).catch(err => { throw err });
+            // p1.then(r => console.log(2,r))
+            // const p2 = fetch('https://5fd96f0e7e05f000170d385e.mockapi.io/api/v1/products433').then(data => data.json()).catch(err => { throw err });
+            // p2.then(r => console.log(3, r))
+            // const p3 = fetch('https://5fd96f0e7e05f000170d385e.mockapi.io/api/v1/task').then(data => data.json()).catch(err => { throw err });
+            // p3.then(r => console.log(4, r))
+            const p1 = await fetch('https://5fd96f0e7e05f000170d385e.mockapi.io/api/v1/users');
+            console.log(2, p1);
+            const p2 = await fetch('https://5fd96f0e7e05f000170d385e.mockapi.io/api/v1/products433');
+            console.log(3, p2);
+            const p3 = await fetch('https://5fd96f0e7e05f000170d385e.mockapi.io/api/v1/task');
+            console.log(4, p3);
+            console.log(a);
+
+        }
+
+        getData();
+    </script>
+
+</body>
+
+</html>
