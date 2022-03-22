@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="click" type="button" value="Click" />
+    <input id="usingBind" type="button" value="UsingBind" />
+    <br />
+    <span id="showInfo"></span>
+
+    <script>
+        "use strict";
+        // Hoisting js
+        // use strict
+        // con tror this
+        // es6, class và object prototype, hàm tạo contructor và kế thừa
+        // sự khác nhau giữu function và arrow function
+        // hàm đệ quy, một ví dụ thực tế
+        // bà hàm call, apply, bind sưj giống và khác nhau
+
+
+        console.log(x);
+        var x = 2;
+
+        const user = {
+            name: 'abc',
+            age: 12,
+            showInfo: function () {
+                console.log(this.name);
+            }
+        }
+
+        console.log(this);
+
+        // user.showInfo();
+
+        // ví dụ hàm tạo contructor
+
+        function SinhVien(id, x, y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        SinhVien.prototype.showName = function () {
+            console.log('hello');
+        }
+
+
+        const newObject = new SinhVien(1, 'React', 28)
+        console.log(newObject);
+
+        const oj = {};
+
+        console.log(oj)
+
+        // viết hmaf đệ quy tính số mũ 2 3
+
+        function soMu(a, b) {
+            let result = 1;
+
+            for (let index = 0; index < b; index++) {
+                result *= a;
+            }
+
+            return result;
+        }
+
+        console.log(soMu(3, 2));
+
+        const deQuy = (x, y) => {
+            if (y === 0) return 1;
+
+            if (y === 1) return x;
+
+            return x * deQuy(x, y - 1);
+        }
+
+        // input x = 2, y = 3; => output => 8
+        // B1: 2 
+        // B2: 2 
+        // B3: 2 => 8
+
+        console.log(deQuy(3, 3));
+
+
+        var userName = {
+            name: "A",
+            age: "35",
+            showInfo: function () {
+                console.log("This is " + this.name + "-" + this.age + "years old");
+            }
+        }
+
+        // userName.showInfo();
+        // const ab = userName.showInfo.bind(user);
+        // ab()
+
+        // Tổng hợp kiến thức js
+        // var, let, const
+        // function scope, block scope
+        // Lênhj rẽ nhánh, if else và switch case
+        // cacs toans logic
+        // toan tu tinh toan
+        // toan tu 3 ngoi
+        // khai báo function, arrow function, hàm không tên
+        // array và các method của array
+        // object và phướng object
+        // DOM, các event và query dom
+        // BOM
+        // sync và async => callback, promise, async await
+        // fetch trả về 1 promise
+        // handle err => .catch()
+        // this, event loop, ...
+
+        // sass và scss, chuẩn BEM
+        // Reactjs => main concep và install
+        // redux, redux-saga, redux-tolkit
+
+    </script>
+</body>
+
+</html>
