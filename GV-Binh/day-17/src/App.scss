@@ -1,0 +1,70 @@
+@import 'styles/variable';
+
+// p {
+//   color: $primaryColor;
+// }
+
+// .App {
+//   background-color: $primaryColor;
+//   //  css cho app
+//   .hello {
+//     // css cho hello
+//     color: $whiteColor;
+//   }
+// }
+
+// // button có width = 50px, height = 40px; bo tron
+
+// @mixin btn-deault {
+//   width: 100px;
+//   height: 40px;
+//   border-radius: 5px;
+// }
+// @function distan($val1, $val2) {
+//   @return $val1 + $val2;
+// }
+
+// .btn-danger {
+//   @include btn-deault;
+//   background-color: red;
+//   font-size: 20px;
+//   margin: distan(10px, 5px);
+// }
+
+// .m-5 {
+//   margin: 5;
+// }
+// .m-10 {
+//   margin: 10;
+// }
+
+// .text-default {
+//   font-size: 16px;
+//   color: $yellow;
+//   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+//   text-transform: uppercase;
+// }
+
+// .text-danger {
+//   @extend .text-default;
+//   color: red;
+// }
+
+// @for $i from 1 through 6 {
+//   @if($i % 2 == 0) {
+//     .item-#{$i} {
+//       color: red;
+//     }
+//   }  @else {
+//     .item-#{$i} {
+//       color: $yellow;
+//     }
+//   }
+// }
+* {
+  margin: 0 auto;
+}
+
+.contaner {
+  text-align: center;
+}
