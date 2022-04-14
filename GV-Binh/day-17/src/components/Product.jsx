@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useMemo, useEffect, useState, useCallback } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -23,6 +23,7 @@ const Product = () => {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [info, setInfo] = useState({});
+  const [text, setText] = useState("");
 
   const handleOpen = () => {
     setOpen(true);
@@ -36,6 +37,26 @@ const Product = () => {
     handleOpen();
     setInfo(item);
   };
+
+  const handleHello = () => {
+    setText("a");
+  };
+
+  const showText = useMemo(() => {
+    console.log(111);
+    return text;
+  }, [text]);
+
+  const renderDynmic = useCallback(() => {
+    console.log(222);
+    if(text === 'a') {
+      return <p>Xin chào tôi là a</p>
+    }
+
+    return <p>Xin chào tôi là b</p>
+  }, [text]);
+
+  console.log(showText);
 
   const handleGetUser = async () => {
     setLoading(true);
@@ -58,6 +79,9 @@ const Product = () => {
     <CircularProgress />
   ) : (
     <div>
+      <button onClick={handleHello}>Hello</button>
+      {renderDynmic()}
+      {showText}
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>

@@ -1,0 +1,41 @@
+1: admin panel -> trang quản trị dashboard
+- yêu cầu cơ bản
+    + Login, logout
+    + redirect về trang dashboard
+    + quản lý min 2 chức năng: user, product (CRUD)
+    + tìm kiếm theo tên, sort or filter
+    + phân trang
+-yêu cầu nâng cao:
+    + login băng face or google
+    + tích hợp Redux-tolkit 
+    + Call API để lấy data
+    + custom hook (ít nhất là 1 cái -> useAuth)
+    + responsive
+
+
+2: bán sản phẩm:
+ - yêu cầu cơ bản: 
+  + show được sản phảm đang bán chạy nhất or show all sản phẩm
+  + khi click vào sản thì xem được chi tiết sản phẩm và thêm được sản phảm vào giỏ hàng
+  + phải có giỏ hàng, khi người dùng mua sản phẩm thì giỏ hangf hiển thị tổng sô sản phảm có trong giỏi hàng
+  + xem chi tiết giỏ hàng khi click vào giỏi hàng
+  + bên trong chi tiết giỏ hàng có thể xoá sản phẩm và thêm hoặc bớt số lượng sản phẩm muốn mua
+  + responsive
+- yêu cầu nâng cao:
+    + tìm kiếm all
+    + tiềm kiếm multiple property
+    + đánh giá sản phẩm 
+
+3: blog và tin tức:
+    -yêu câu cơ bản:
+        + shoow được tin tức với giao diện đẹp
+        + tìm kiếm tim tức theo tiêu đề, và theo khoảng thời gian tạo bài viết
+        + có thể xem chi tiết 1 bài viết
+        + có comment vào phần xem chi tiết 1 bài viết
+        + đánh giá bài viết qua sô lượng sao
+        + vừa có thể hiển thị video, ảnh, và mp3
+        + hiển thị các tin tức đang hot nhất
+        + responsive
+    - yêu cầu nâng cao:
+        + chức năng đăng ký email để nhận tin mới nhất
+        + tìm bài viết thông qua tác giả
