@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
-import { CountContext } from "../context";
+import React from "react";
+// import { CountContext } from "../context";
 
 // const initialState = {
 //   count: 0,
@@ -19,7 +19,6 @@ import { CountContext } from "../context";
 // };
 
 const Count = () => {
-  const {state, dispatch} = useContext(CountContext);
   // const [state, dispatch] = useReducer(reduce, initialState);
   // loading => setLoading
   // const [count, setCount] = useState(10);
@@ -42,11 +41,11 @@ const Count = () => {
 
   return (
     <div className="contaner">
-      {state.count}
-      <button onClick={() => dispatch({ type: "INCREMENT" })}>
+      {/* {state.count} */}
+      {/* <button onClick={() => dispatch({ type: "INCREMENT" })}>
         Increment (+)
       </button>
-      <button onClick={() => dispatch({type: "DECREMENT"})}>Decrement (-)</button>
+      <button onClick={() => dispatch({type: "DECREMENT"})}>Decrement (-)</button> */}
 
       <br />
 

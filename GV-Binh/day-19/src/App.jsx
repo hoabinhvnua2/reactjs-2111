@@ -3,6 +3,7 @@ import "./App.scss";
 import Product from "./components/Product";
 import Random from './components/Random';
 import Count from './components/Count';
+import AddStaff from './components/AddStaff';
 import { ProviderCustom } from './context';
 
 export default function App() {
@@ -10,7 +11,7 @@ export default function App() {
     <div className="App">
       {/* <Random /> */}
       <ProviderCustom>
-        <Count />
+        <AddStaff />
       </ProviderCustom>
     </div>
   );

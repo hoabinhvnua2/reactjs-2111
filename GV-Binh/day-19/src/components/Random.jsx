@@ -1,14 +1,10 @@
-import React, { useContext } from "react";
-import { CountContext } from "../context";
+import React from "react";
+
 
 const Random = () => {
   const [number, setNumber] = React.useState(0);
   const [number1, setNumber1] = React.useState(0);
   const inputEl = React.useRef(null);
-  const state = useContext(CountContext);
-
-
-  console.log(state);
 
   React.useLayoutEffect(() => {
       console.log('layout');

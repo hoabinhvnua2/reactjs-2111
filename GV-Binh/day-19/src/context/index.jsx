@@ -2,34 +2,37 @@ import React, { createContext, useReducer } from "react";
 
 const initState = {
   count: 10,
+  staff: [],
 };
 
-const CountContext = createContext();
+const AppContext = createContext();
 
 const reduce = (state, action) => {
-    const {type} = action;
-
-    switch (type) {
-        case "INCREMENT":
-            return {...state, count: state.count + 1}
-        case "DECREMENT":
-            return {...state, count: state.count - 1}
+  const { type, payload } = action;
     
-        default:
-            break;
-    }
-}
+  switch ((type)) {
+    case "INCREMENT":
+      return { ...state, count: state.count + 1 };
+    case "DECREMENT":
+      return { ...state, count: state.count - 1 };
+    case "ADD_NEW_STAFF":
+      return { ...state, staff: [...state.staff, payload] };
+    default:
+      break;
+  }
+};
 
 const ProviderCustom = ({ children }) => {
-
-    const [state, dispatch] = useReducer(reduce, initState);
+  const [state, dispatch] = useReducer(reduce, initState);
   return (
-    <CountContext.Provider value={{state, dispatch}}>{children}</CountContext.Provider>
+    <AppContext.Provider value={{ state, dispatch }}>
+      {children}
+    </AppContext.Provider>
   );
 };
 
+//  toj giao dien theem mowis nhaan viee
+//  tee, tuoi, phong ban, so nam kinh nghiem, chuc vu
+// sau khi theem thif luu vao context
 
-export {
-    ProviderCustom,
-    CountContext
-}
+export { ProviderCustom, AppContext };
